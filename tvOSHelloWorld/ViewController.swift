@@ -6,7 +6,9 @@
 //  Copyright © 2015 bruno v0id. All rights reserved.
 //
 
+import Foundation
 import UIKit
+import AVKit
 
 class ViewController: UIViewController {
 
@@ -20,15 +22,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    @IBAction func actionClickMe(sender: UIButton) {
-        
-        let alertController = UIAlertController(title: "Welcome to tvOS", message: "My First App", preferredStyle:.Alert)
-        
-        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
-        alertController.addAction(defaultAction)
-        
-        presentViewController(alertController, animated: true, completion: nil)
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destination = segue.destinationViewController as! VideoPlayerViewController
+        let url = NSURL(string: "http://www.ebookfrenzy.com/ios_book/movie/movie.mov")
+        destination.player = AVPlayer(URL: url!)
     }
-
+    
 }
 
