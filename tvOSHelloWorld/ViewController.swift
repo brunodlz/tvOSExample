@@ -20,6 +20,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func actionClickMe(sender: UIButton) {
+        
+        let alertController = UIAlertController(title: "Welcome to tvOS", message: "My First App", preferredStyle:.Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
 
 }
 
